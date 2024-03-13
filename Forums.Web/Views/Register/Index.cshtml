@@ -1,0 +1,68 @@
+﻿@model Forums.Web.Models.UserRegister
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Register/_LayoutRegister.cshtml";
+}
+
+<div class="modal-wrap">
+    <div class="modal-bodies">
+        <div class="modal-body modal-body-step-1 is-showing">
+            <div class="title">Sign Up</div>
+            <div class="description">Create an Account</div>
+            <form method="post" id="form">
+                @Html.AntiForgeryToken()
+                <div class="input-data">
+                    <div id="error-credential" class="text-red"></div>
+                    <div class="accept-data-arrow"><span id="credential-accept-data"></span></div>
+                    <input type="text" placeholder="UserName" name="Credential" id="Credential" onkeyup="validateCredential()" required />
+                </div>
+                <div class="input-data">
+                    <div class="accept-data-arrow"><span id="email-accept-data"></span></div>
+                    <input type="email" placeholder="Email" name="Email" id="Email" onkeyup="validateEmail()" required />
+                </div>
+                <div class="input-data">
+                    <div id="error-password" class="text-red"></div>
+                    <div class="accept-data-arrow"><span id="password-accept-data"></span></div>
+                    <input type="password" placeholder="Password" name="Password" id="Password" onkeyup="validatePassword()" required />
+                </div>
+                <div class="input-data">
+                    <div id="error-con-password" class="text-red"></div>
+                    <div class="accept-data-arrow"><span id="con-password-accept-data"></span></div>
+                    <input type="password" placeholder="Confirm Password" name="Con-Password" id="Con-Password" onkeyup="validateConPassword()" required />
+                </div>
+                <div class="input-data">
+                    <div class="accept-data-arrow"><span id="address-accept-data"></span></div>
+                    <div class="text-area"><textarea rows="2" placeholder="Address" name="Address" id="Address" onkeyup="validateAddress()"></textarea></div>
+                </div>
+                <div class="col-md-4">
+                    <div class="row text-center sign-with">
+                        <div class="col-md-12 sign-in28912">
+                            <div class="btn-group btn-group-justified">
+
+                                <input type="submit" value="Register" class="button" style="width:200px;">
+
+                            </div>
+                        </div>
+                        <script src="assets/js/auth.js"></script>
+                        <br>
+                        Have already an account? <a href="/login" class="btn-link">Login</a>
+
+                        <hr>
+                        <div class="col-md-12 sign-in28912">
+                            <img src="~/assets/image/google_icon.png" alt="Google" class="google-icon">
+                            <a href="/" class="btn btn-danger btn-sign-google">Sign in with Google</a>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+
+    </div>
+</div>
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+
+@*<a href="/" class="btn btn-primary btn-primary3838">Facebook</a>*@
