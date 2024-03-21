@@ -9,13 +9,13 @@ namespace Forums.BusinessLogic
 {
     public class BussinesLogic
     {
-        public IAuth GetAuthBL()
+        public ISession GetAuthBL()
         {
-            return new AuthBL();
+            return new SessionBL();
         }
-        public IRegister GetRegisterBL()
+        public ISession GetRegisterBL()
         {
-            return new RegisterBL();
+            return new SessionBL();
         }
     }
 }

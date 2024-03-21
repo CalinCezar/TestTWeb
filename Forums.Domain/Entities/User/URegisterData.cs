@@ -12,8 +12,8 @@ namespace Forums.Domain.Entities.User
         public string Password { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
-        public string RegisterIP { get; set; }
-        public DateTime RegisterDateTime { get; set; }
+        //public string RegisterIP { get; set; }
+        //public DateTime RegisterDateTime { get; set; }
 
     }
 }

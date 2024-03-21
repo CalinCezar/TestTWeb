@@ -10,11 +10,17 @@ using System.Threading.Tasks;
 
 namespace Forums.BusinessLogic
 {
-    public class AuthBL : UserApi, IAuth // IAuth - se implementeaza contractul
+    public class SessionBL : UserApi, ISession // IAuth - se implementeaza contractul
     {
         public GeneralResp UserPassCheckAction(ULoginData data)
         {
             return UserAuthLogic(data);
         }
+        public GeneralResp RegisterNewUserAction(URegisterData data)
+        {
+            return RegisterUserAction(data); 
+        }
     }
 }
+// register
+//public 

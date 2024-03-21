@@ -15,11 +15,11 @@ namespace Forums.Web.Controllers
 {
     public class LoginController : Controller
     {
-        private readonly IAuth _auth;
+        private readonly ISession _session;
         public LoginController()
         {
             var bl = new BussinesLogic();
-            _auth = bl.GetAuthBL();
+            _session = bl.GetAuthBL();
         }
 
         // GET: Login
@@ -37,7 +37,7 @@ namespace Forums.Web.Controllers
                     LoginDateTime = DateTime.Now
                 };
 
-                GeneralResp resp = _auth.UserPassCheckAction(user);
+                GeneralResp resp = _session.UserPassCheckAction(user);
 
                 if (resp.Status)
                 {

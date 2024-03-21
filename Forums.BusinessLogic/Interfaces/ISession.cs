@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Forums.BusinessLogic.Interfaces
 {
-    public interface IRegister
+    public interface ISession
     {
-        GeneralResp UserRegisterCheckAction(URegisterData data);
+        GeneralResp UserPassCheckAction(ULoginData data);
+        GeneralResp RegisterNewUserAction(URegisterData data);
     }
 }
+
+// interfata - contract care specifica ce trebuie sa faca entitatea.

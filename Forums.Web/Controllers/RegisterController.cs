@@ -16,11 +16,11 @@ namespace Forums.Web.Controllers
     public class RegisterController : Controller
     {
 
-        private readonly IRegister _auth;
+        private readonly ISession _session;
         public RegisterController()
         {
             var bl = new BussinesLogic();
-            _auth = bl.GetRegisterBL();
+            _session = bl.GetRegisterBL();
         }
 
         // GET: Register
@@ -36,18 +36,16 @@ namespace Forums.Web.Controllers
                     Password = uRegis.Password,
                     Email = uRegis.Email,
                     Address = uRegis.Address,
-                    RegisterIP = Request.UserHostAddress,
-                    RegisterDateTime = DateTime.Now
+                    //RegisterIP = Request.UserHostAddress,
+                    //RegisterDateTime = DateTime.Now
                 };
 
-
-
-                GeneralResp resp = _auth.UserRegisterCheckAction(user);
+                GeneralResp resp = _session.RegisterNewUserAction(user);
 
                 if (resp.Status)
                 {
                     //ADD COOKIE
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Login", "Home");
                 }
                 else
                 {
