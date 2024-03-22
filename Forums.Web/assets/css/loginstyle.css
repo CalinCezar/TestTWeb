@@ -210,11 +210,12 @@ label {
     margin-bottom: 20px;
     border-radius: 3px;
     outline: none;
+    resize:vertical;
 }
 
-    .text-area textarea:focus {
-        border-color: #ff6652;
-    }
+.text-area textarea:focus {
+    border-color: #ff6652;
+}
 
 .btn-link {
     font-size: 15px;

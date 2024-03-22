@@ -35,9 +35,7 @@ namespace Forums.Web.Controllers
                     Credential = uRegis.Credential,
                     Password = uRegis.Password,
                     Email = uRegis.Email,
-                    Address = uRegis.Address,
-                    //RegisterIP = Request.UserHostAddress,
-                    //RegisterDateTime = DateTime.Now
+                    InfoBlog = uRegis.InfoBlog,
                 };
 
                 GeneralResp resp = _session.RegisterNewUserAction(user);

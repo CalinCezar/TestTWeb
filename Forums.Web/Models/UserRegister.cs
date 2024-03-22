@@ -17,7 +17,8 @@ namespace Forums.Web.Models
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
-        [Display(Name = "Address")]
-        public string Address { get; set; }
+        [Display(Name = "InfoBlog")]
+        public string InfoBlog { get; set; }
+
     }
 }

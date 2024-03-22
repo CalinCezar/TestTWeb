@@ -3,14 +3,14 @@ const credential = document.getElementById('Credential');
 const password = document.getElementById('Password');
 const conPassword = document.getElementById('Con-Password');
 const email = document.getElementById('Email');
-const address = document.getElementById('Address');
+const info = document.getElementById('Info');
 
 ////////////////// GREEN ARROW ///////////////////////////////////////////////////////
 var credentialAccept = document.getElementById('credential-accept-data');
 var passwordAccept = document.getElementById('password-accept-data');
 var conPasswordAccept = document.getElementById('con-password-accept-data');
 var emailAccept = document.getElementById('email-accept-data');
-var addressAccept = document.getElementById('address-accept-data');
+var infoAccept = document.getElementById('info-accept-data');
 
 
 //////////////// WRONG INPUT ////////////////////////////////////////////////////////
@@ -18,8 +18,8 @@ var errorCredential = document.getElementById('error-credential');
 var errorPassword = document.getElementById('error-password');
 var errorConPassword = document.getElementById('error-con-password');
 /////////////////// FORM ///////////////////////////////////////////////////////////
-var form = document.getElementById('form');
-const login = document.getElementById('login');
+var register = document.getElementById('register');
+
 //////////////////// VALIDATE GREEN ARROW /////////////////////////////////////////
 function validateCredential() {
 
@@ -55,40 +55,40 @@ function validateEmail() {
     emailAccept.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
     return true;
 }
-function validateAddress() {
-    if (address.value.length == 0) {
-        addressAccept.innerHTML = '';
+function validateInfo() {
+    if (info.value.length == 0) {
+        infoAccept.innerHTML = '';
         return false;
     }
-    addressAccept.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+    infoAccept.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
     return true;
 }
 ///////////////////////////////////////////////////////////////////////////////
 
 ///////////////// FORM CHEKS /////////////////////////////////////////////////
-form.addEventListener('submit', (e) => {
+register.addEventListener('submit', (e) => {
     let messageCredential = []
     let messagePassword = []
     let messageConPassword = []
 
     ///////////// PASSWORD /////////////////////////////
-    if (password.value.length <= 4) {
-        messagePassword.push('Password must be longer than 4');
+    if (password.value.length <= 7) {
+        messagePassword.push('Password must be longer than 7');
         passwordAccept.innerHTML = '';
     }
     ///////////// CON-PASSWORD /////////////////////////
-    if (conPassword.value.length <= 4) {
-        messageConPassword.push('Password must be longer than 4');
+    if (conPassword.value.length <= 7) {
+        messageConPassword.push('Password must be longer than 7');
         conPasswordAccept.innerHTML = '';
     }
     if (password.value != conPassword.value) {
-        messagePassword.push('Invalid password')
-        messageConPassword.push('Invalid password');
+        messagePassword.push('Incorrect password')
+        messageConPassword.push('Incorrect password');
         passwordAccept.innerHTML = '';
         conPasswordAccept.innerHTML = '';
     }
     //////////// MESSAGE ON SCREEN/////////////////////
-    if (messageCredential.length > 0) {
+    if (messageCredential.length > 0){
         e.preventDefault();
         errorCredential.innerText = messageCredential.join(', ');
     }
