@@ -13,6 +13,7 @@ namespace Forums.BusinessLogic.DBModel
         public UserContext():
             base("name=Forums") // ConnectionString name define in FILE Web.config
         {
+
         }
         public virtual DbSet<UDbTable> Users { get; set; }
     }

@@ -1,6 +1,7 @@
 ﻿using Forums.BusinessLogic.DBModel;
 using Forums.Domain.Entities.Response;
 using Forums.Domain.Entities.User;
+using Forums.Domain.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,33 +22,26 @@ namespace Forums.BusinessLogic.Core
                 //SQL connect, select, check data, logic on data
 
 
-                //return new GeneralResp();
                 return new GeneralResp { Status = false, StatusMsg = "" };
         }
         internal GeneralResp RegisterUserAction(URegisterData data)
         {
             var newUser = new UDbTable()
             {
-
+                Username = data.Credential,
+                Password = data.Password,
+                Email = data.Email,
+                InfoBlog = data.InfoBlog,
+                Level = UserRole.User
             };
-            return new GeneralResp();
+            // CONNECT WITH DB
+            using (var db = new UserContext())
+            {
+                db.Users.Add(newUser);
+                db.SaveChanges();
+            }
+
+                return new GeneralResp();
         }
-        //internal GeneralResp RegisterUserAction(URegisterData data)
-        //{
-        //var newUser = new User()
-        //{
-        // Credential = data.Credential;
-        // Password = data.Password
-        // Email = data.Email;
-        // Level = UserRole.User
-        //}
-        // connection with DataBase
-        // using (var db = new UDbTable())
-        //{
-        //db.Users.Add(newUser);
-        // db.SaveChanges();
-        //}
-        //return new GeneralResp();
-        //}
     }
 }
