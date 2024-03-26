@@ -13,7 +13,7 @@ namespace Forums.BusinessLogic.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202403241015009_InitialMigration"; }
+            get { return "202403261414158_InitialMigration"; }
         }
         
         string IMigrationMetadata.Source

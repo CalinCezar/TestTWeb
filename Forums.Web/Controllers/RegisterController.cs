@@ -36,14 +36,16 @@ namespace Forums.Web.Controllers
                     Password = uRegis.Password,
                     Email = uRegis.Email,
                     InfoBlog = uRegis.InfoBlog,
-                };
+                    LoginIp = Request.UserHostAddress,
+                    LoginDateTime = DateTime.Now
+            };
 
                 GeneralResp resp = _session.RegisterNewUserAction(user);
 
                 if (resp.Status)
                 {
                     //ADD COOKIE
-                    return RedirectToAction("Login", "Home");
+                    return RedirectToAction("Index", "Login");
                 }
                 else
                 {

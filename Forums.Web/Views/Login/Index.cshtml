@@ -10,18 +10,19 @@
         <div class="modal-body modal-body-step-1 is-showing">
             <div class="title">Log In</div>
             <div class="description">Welcome again</div>
-            @Html.ValidationSummary(true)
+            @Html.ValidationSummary(true, "", new { @class = "text-red" })
+
             @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @id = "login" }))
             {
 
                 @Html.AntiForgeryToken()
                 <div class="input-data">
-                    <div id="error-credential-login" class="text-red"></div>
-                    <input type="text" placeholder="UserName" name="Credential" id="Credential" @*onkeyup="validateCredential()"*@ required />
+                    @*<div id="error-credential-login" class="text-red"></div>*@
+                    <input type="text" placeholder="Username or Email" name="Credential" id="Credential" required />
                 </div>
                 <div class="input-data">
                     <div id="error-password-login" class="text-red"></div>
-                    <input type="password" placeholder="Password" name="Password" id="Password" @*onkeyup="validatePassword()"*@ required />
+                    <input type="password" placeholder="Password" name="Password" id="Password" required />
                 </div>
                 <div class="text-center">
                     <input type="submit" value="Login" class="button" style="width:200px; ">

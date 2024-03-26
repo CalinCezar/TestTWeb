@@ -130,7 +130,7 @@
     <Content Include="assets\image\google_icon.png" />
     <Content Include="assets\image\icon.png" />
     <Content Include="assets\image\images.png" />
-    <Content Include="assets\image\logo.png" />
+    <Content Include="assets\image\slogan.png" />
     <Content Include="assets\js\auth.js" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\bootstrap.min.js" />

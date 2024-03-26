@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Forums.Domain.Entities.User;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Forums.BusinessLogic.DBModel
 {
@@ -16,5 +17,6 @@ namespace Forums.BusinessLogic.DBModel
 
         }
         public virtual DbSet<UDbTable> Users { get; set; }
+
     }
 }

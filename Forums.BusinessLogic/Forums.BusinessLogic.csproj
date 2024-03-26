@@ -45,6 +45,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
@@ -62,9 +64,9 @@
     <Compile Include="Core\UserApi.cs" />
     <Compile Include="DBModel\UserContext.cs" />
     <Compile Include="Interfaces\ISession.cs" />
-    <Compile Include="Migrations\202403241015009_InitialMigration.cs" />
-    <Compile Include="Migrations\202403241015009_InitialMigration.designer.cs">
-      <DependentUpon>202403241015009_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\202403261414158_InitialMigration.cs" />
+    <Compile Include="Migrations\202403261414158_InitialMigration.designer.cs">
+      <DependentUpon>202403261414158_InitialMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -88,8 +90,8 @@
     <Folder Include="DBModel\Seed\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202403241015009_InitialMigration.resx">
-      <DependentUpon>202403241015009_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202403261414158_InitialMigration.resx">
+      <DependentUpon>202403261414158_InitialMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

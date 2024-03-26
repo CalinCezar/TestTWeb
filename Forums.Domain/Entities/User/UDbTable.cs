@@ -25,7 +25,7 @@ namespace Forums.Domain.Entities.User
         [Display(Name = "Email")]
         [StringLength(30)]
         public string Email { get; set; }
-
+     
         [Display(Name = "InfoBlog")]
         [StringLength(150)]
         public string InfoBlog { get; set; }
