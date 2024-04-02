@@ -10,6 +10,6 @@ namespace Forums.Domain.Enum
     {
         None,
         User,
-        Admin,
+        Admin
     }
 }

@@ -49,7 +49,7 @@ namespace Forums.Web.Controllers
                 }
                 else
                 {
-                    //ModelState.AddModelError("", resp.StatusMsg);
+                    ModelState.AddModelError("", resp.StatusMsg);
                     return View(uRegis);
                 }
             }

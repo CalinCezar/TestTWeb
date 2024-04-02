@@ -80,11 +80,11 @@ register.addEventListener('submit', (e) => {
     ///////////// CREDENTIAL /////////////////////////////
     if (credential.value.length <= 4) {
         messageCredential.push('Username MINIM 5 characters');
-        passwordAccept.innerHTML = '';
+        credentialAccept.innerHTML = '';
     }
     if (credential.value.length > 30) {
         messageCredential.push('Username MAXIM 30 characters');
-        passwordAccept.innerHTML = '';
+        credentialAccept.innerHTML = '';
     }
 
     ///////////// PASSWORD /////////////////////////////

@@ -45,14 +45,23 @@ namespace Forums.BusinessLogic.Core
                 Level = UserRole.User
      
             };
+
             // CONNECT WITH DB
+            
             using (var db = new UserContext())
             {
-                db.Users.Add(newUser);
-                db.SaveChanges();
+                if (db.Users.Any(u => u.Email == data.Email))
+                {
+                    return new GeneralResp { Status = false, StatusMsg = "Email already exists" };
+                }
+                else
+                {
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
+                }
             }
             
-            return new GeneralResp { Status = true};
+            return new GeneralResp {Status = true};
         }
     }
 }
