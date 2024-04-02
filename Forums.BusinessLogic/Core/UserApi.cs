@@ -112,7 +112,7 @@ namespace Forums.BusinessLogic.Core
                     db.SaveChanges();
                 }
             }
-            
+            // MODIFIED
             return new GeneralResp {Status = true};
         }
         internal HttpCookie Cookie(string loginCredential)
