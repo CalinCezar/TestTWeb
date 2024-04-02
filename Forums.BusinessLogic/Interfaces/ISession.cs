@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Forums.BusinessLogic.Interfaces
 {
@@ -12,6 +13,8 @@ namespace Forums.BusinessLogic.Interfaces
     {
         GeneralResp UserPassCheckAction(ULoginData data);
         GeneralResp RegisterNewUserAction(URegisterData data);
+        HttpCookie GenCookie(string loginCredential);
+        UserMinimal GetUserByCookie(string apiCookieValue);
     }
 }
 
