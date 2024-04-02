@@ -10,7 +10,7 @@ namespace Forums.BusinessLogic.DBModel
 {
     public class SessionContext : DbContext
     {
-        public SessionContext() : base("name=CCToolShop")
+        public SessionContext() : base("name=Forums")
         {
 
         }
