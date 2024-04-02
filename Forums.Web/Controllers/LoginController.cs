@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Web.Optimization;
+using Microsoft.Ajax.Utilities;
 
 namespace Forums.Web.Controllers
 {
@@ -20,6 +21,10 @@ namespace Forums.Web.Controllers
         {
             var bl = new BussinesLogic();
             _session = bl.GetAuthBL();
+        }
+        public ActionResult Index()
+        {
+            return View();
         }
 
         // GET: Login
@@ -41,19 +46,16 @@ namespace Forums.Web.Controllers
 
                 if (resp.Status)
                 {
-                    //ADD COOKIE
+                    HttpCookie cookie = _session.GenCookie(uLogin.Credential);
+                    ControllerContext.HttpContext.Response.Cookies.Add(cookie);
                     return RedirectToAction("Index", "Home");
                 }
                 else
                 {
                     ModelState.AddModelError("", resp.StatusMsg);
-                    return View(uLogin);
+                    return View();
                 }
             }
-            return View(uLogin);
-        }
-        public ActionResult Index()
-        {
             return View();
         }
     }

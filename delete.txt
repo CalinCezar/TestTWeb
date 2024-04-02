@@ -1,0 +1,22 @@
+public class SessionCleanupService
+{
+    private readonly TimeSpan SessionExpiration = TimeSpan.FromMinutes(30); // Example expiration period
+
+    public void CleanupExpiredSessions()
+    {
+        DateTime currentTime = DateTime.UtcNow;
+        DateTime expirationThreshold = currentTime - SessionExpiration;
+
+        // Query the database for sessions that have expired
+        using (var dbContext = new YourDbContext())
+        {
+            var expiredSessions = dbContext.Sessions
+                .Where(s => s.ExpirationTimestamp <= expirationThreshold)
+                .ToList();
+
+            // Delete the expired sessions from the database
+            dbContext.Sessions.RemoveRange(expiredSessions);
+            dbContext.SaveChanges();
+        }
+    }
+}
