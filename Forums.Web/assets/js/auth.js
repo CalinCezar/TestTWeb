@@ -19,6 +19,7 @@ var errorPassword = document.getElementById('error-password');
 var errorConPassword = document.getElementById('error-con-password');
 var errorEmail = document.getElementById('error-email');
 var errorInfoBlog = document.getElementById('error-info-blog');
+
 /////////////////// FORM ///////////////////////////////////////////////////////////
 var register = document.getElementById('register');
 
@@ -93,7 +94,7 @@ register.addEventListener('submit', (e) => {
         passwordAccept.innerHTML = '';
     }
     if (password.value.length > 50) {
-        messagePassword.push('Password MINIM 50 characters');
+        messagePassword.push('Password MAXIM 50 characters');
         passwordAccept.innerHTML = '';
     }
     ///////////// CON-PASSWORD /////////////////////////

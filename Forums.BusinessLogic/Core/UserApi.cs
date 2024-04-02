@@ -42,7 +42,7 @@ namespace Forums.BusinessLogic.Core
                 var pass = LoginHelper.HashGen(data.Password);
                 using (var db = new UserContext())
                 {
-                    result = db.Users.FirstOrDefault(u => (u.Username == data.Credential || u.Email == data.Credential) && u.Password == data.Password);
+                    result = db.Users.FirstOrDefault(u => (u.Username == data.Credential || u.Email == data.Credential) && u.Password == pass);
                 }
 
                 if (result == null)
@@ -65,7 +65,7 @@ namespace Forums.BusinessLogic.Core
                 var pass = LoginHelper.HashGen(data.Password);
                 using (var db = new UserContext())
                 {
-                    result = db.Users.FirstOrDefault(u => u.Username == data.Credential && u.Password == data.Password);
+                    result = db.Users.FirstOrDefault(u => u.Username == data.Credential && u.Password == pass);
                 }
 
                 if (result == null)
@@ -89,7 +89,7 @@ namespace Forums.BusinessLogic.Core
             var newUser = new UDbTable()
             {
                 Username = data.Credential,
-                Password = data.Password,
+                Password = LoginHelper.HashGen(data.Password),
                 Email = data.Email,
                 InfoBlog = data.InfoBlog,
                 LastLogin = data.LoginDateTime,

@@ -17,7 +17,7 @@
 
                 @Html.AntiForgeryToken()
                 <div class="input-data">
-                    @*<div id="error-credential-login" class="text-red"></div>*@
+                    <div id="error-credential-login" class="text-red"></div>
                     <input type="text" placeholder="Username or Email" name="Credential" id="Credential" required />
                 </div>
                 <div class="input-data">
@@ -28,7 +28,7 @@
                     <input type="submit" value="Login" class="button" style="width:200px; ">
                 </div>
 
-                <script src="assets/js/login.js"></script>
+                <script src="~/assets/js/login.js"></script>
                 <hr>
 
                 <div class="text-center"> Don't have an account? <a href="/register" class="btn-link">Sign up</a></div>
