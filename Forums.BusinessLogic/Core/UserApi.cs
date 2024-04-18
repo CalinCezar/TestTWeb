@@ -27,14 +27,6 @@ namespace Forums.BusinessLogic.Core
         internal GeneralResp UserAuthLogic(ULoginData data)
         {
             //SQL connect, select, check data, logic on data
-            /*            UDbTable user;
-                        using (var db = new UserContext())
-                        {
-                            user = db.Users.FirstOrDefault(u => (u.Username == data.Credential || u.Email == data.Credential) && u.Password == data.Password);
-                        }
-
-                        if(user == null) return new GeneralResp { Status = false, StatusMsg="Invalid Credentials"};
-                        return new GeneralResp { Status = true };*/
             UDbTable result;
             var validate = new EmailAddressAttribute();
             if (validate.IsValid(data.Credential))
@@ -185,7 +177,7 @@ namespace Forums.BusinessLogic.Core
             }
 
             if (curentUser == null) return null;
-            Mapper.Initialize(cfg => cfg.CreateMap<UDbTable, UserMinimal>());
+            
             var userminimal = Mapper.Map<UserMinimal>(curentUser);
 
             return userminimal;

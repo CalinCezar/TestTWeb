@@ -7,7 +7,7 @@ using Forums.Web.Extension;
 using Forums.BusinessLogic.Interfaces;
 using Forums.BusinessLogic;
 
-namespace eUseControl.Web.Controllers
+namespace Forums.Web.Controllers
 {
     public class BaseController : Controller
     {

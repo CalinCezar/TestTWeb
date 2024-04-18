@@ -7,18 +7,18 @@ namespace Forums.Helpers
 {
     public static class CookieGenerator
     {
-        private const string SaltData = "QADLz4qk3rVgBSGjDfAH3XWV" + "qKKagMXezBPv7TmXvwnXDDeR" + "pHaLBv4JnTGRwLg9tzbmV77g" + "8DUEAEa6JPv66hy7SwHBL4z4" + "FbGdh2MVs4kq9RcaZEAszuP5"
-                                        + "ccLsEfqCpwdSvVVt479DCZrw" + "jSHrJVwaja9WQaWAmEY9NsPv" + "EHKnFwHTGAvPXpjpCxkbedYq" + "uEauLvZLphwmJLUteZ4QAXU6" + "Z4F3PDmh3wsQXvSctQBHvNWf";
+        private const string SaltData =   "P0rm85xgAf6F2hf8fas0a72b" + "ajYUioNVwmcAhdYicxsHHbAA" + "pHaLBv4JnTGRwLg9tzbmV77g" + "8DUEAEa6JPv66hy7SwHBL4z4" + "FbGdh2MVs4kq9RcaZEAszuP5"
+                                        + "ccLsEfqCpwdSvVVt479DCZrw" + "jSHrJVwaja9WQaWAmEY9NsPv" + "ANopBJZXCCvzvGGFcxdyrCGc" + "uEauLvZLphwmJLUteZ4QAXU6" + "Z7XGgd6dtfg7FG7fgc7gGFQQ";
         private static readonly byte[] Salt = Encoding.ASCII.GetBytes(SaltData);
 
         public static string Create(string value)
         {
-            return EncryptStringAes(value, "BjXNmq5MKKaraLwxz9uaATvFwE4Rj679KguTRE8c2j56FnkuKJKfkGbZEeDGFDvsGYNHpUXFUUUuUHBR4UV3T2kumguhubg6Gpt7CyqGDbUPrMvPc67kX3yP");
+            return EncryptStringAes(value, "AHbtW2AWERD44jdEefJBIfDqXvMOiYt4HnMJ29gspwriBoBCjbHBgHJfYhvHvqAWd3PpMMvBMnbnbZfaFGXDcvcHGFcGFfgFC845swWWwOKOPKojiSIs0sSSs");
         }
 
         public static string Validate(string value)
         {
-            return DecryptStringAes(value, "BjXNmq5MKKaraLwxz9uaATvFwE4Rj679KguTRE8c2j56FnkuKJKfkGbZEeDGFDvsGYNHpUXFUUUuUHBR4UV3T2kumguhubg6Gpt7CyqGDbUPrMvPc67kX3yP");
+            return DecryptStringAes(value, "AHbtW2AWERD44jdEefJBIfDqXvMOiYt4HnMJ29gspwriBoBCjbHBgHJfYhvHvqAWd3PpMMvBMnbnbZfaFGXDcvcHGFcGFfgFC845swWWwOKOPKojiSIs0sSSs");
         }
 
 

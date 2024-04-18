@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Forums.Web.Extension;
+using Forums.Web.Filters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,12 +8,14 @@ using System.Web.Mvc;
 
 namespace Forums.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
-        public ActionResult Index()
+        [AdminActionFilter]
+    [AuthorisedActionFilter]
+    public ActionResult HomePage()
         {
+            SessionStatus();
             return View();
         }
-
     }
 }

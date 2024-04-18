@@ -265,11 +265,15 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Content Include="assets\css\profile.css" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
+    <Compile Include="Filters\AdminActionFilter.cs" />
+    <Compile Include="Filters\AuthorisedActionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -287,7 +291,6 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Views\Shared\_WelcomeSection.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
@@ -295,6 +298,12 @@
     <Content Include="Views\Login\_LayoutLogin.cshtml" />
     <Content Include="Views\Register\Index.cshtml" />
     <Content Include="Views\Register\_LayoutRegister.cshtml" />
+    <Content Include="Views\Home\HomeLayout\_Footer.cshtml" />
+    <Content Include="Views\Home\HomeLayout\_Header.cshtml" />
+    <Content Include="Views\Home\HomeLayout\_WelcomeSection.cshtml" />
+    <Content Include="Views\Home\HomeLayout\_HomeLayout.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

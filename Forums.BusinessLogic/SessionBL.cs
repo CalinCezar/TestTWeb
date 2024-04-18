@@ -11,7 +11,7 @@ using System.Web;
 
 namespace Forums.BusinessLogic
 {
-    public class SessionBL : UserApi, ISession 
+    public class SessionBL : UserApi, ISession
     {
         public GeneralResp UserPassCheckAction(ULoginData data)
         {

@@ -11,6 +11,7 @@ using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Web.Optimization;
 using Microsoft.Ajax.Utilities;
+using Forums.Web.Extension;
 
 namespace Forums.Web.Controllers
 {
@@ -48,7 +49,7 @@ namespace Forums.Web.Controllers
                 {
                     HttpCookie cookie = _session.GenCookie(uLogin.Credential);
                     ControllerContext.HttpContext.Response.Cookies.Add(cookie);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("HomePage", "Home");
                 }
                 else
                 {

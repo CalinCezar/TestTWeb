@@ -1,8 +1,10 @@
-﻿@using System.Web.Optimization
+﻿@using System.Web.Optimization;
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="title" content="Ask online Form">
     <meta name="description" content="The Ask is a bootstrap design help desk, support forum website template coded and designed with bootstrap Design, Bootstrap, HTML5 and CSS. Ask ideal for wiki sites, knowledge base sites, support forum sites">
     <meta name="keywords" content="HTML, CSS, JavaScript,Bootstrap,js,Forum,webstagram ,webdesign ,website ,web ,webdesigner ,webdevelopment">
@@ -11,15 +13,26 @@
     <meta name="language" content="English">
     <title>#BlogHub</title>
     <link rel="icon" type="image/x-icon" href="~/assets/image/icon.png">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    @Styles.Render("~/bundles/loginstyle/css")
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    @Styles.Render("~/bundles/bootstrap/css")
+    @Styles.Render("~/bundles/style/css")
+    @Styles.Render("~/bundles/file/css")
+    @Styles.Render("~/bundles/font-awesome.mim/css")
 </head>
-
 <body>
 
+    <!-- ========== Header =======-->
+    @Html.Partial("~/Views/Home/HomeLayout/_Header.cshtml")
+
+    <!--======= Welcome Section on top =====-->
+    @Html.Partial("~/Views/Home/HomeLayout/_WelcomeSection.cshtml")
+
+    <!--======= Main Content =====-->
     @RenderBody()
+
+    <!--======== Footer =======-->
+    @Html.Partial("~/Views/Home/HomeLayout/_Footer.cshtml")
 
 </body>
 </html>
+
+
