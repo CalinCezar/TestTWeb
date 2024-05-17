@@ -8,5 +8,6 @@ namespace Forums.BusinessLogic.Core
 {
     public class AdminApi
     {
+        
     }
 }

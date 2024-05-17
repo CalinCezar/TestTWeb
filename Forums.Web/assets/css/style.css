@@ -1,6 +1,8 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
-
+:root {
+    --font-default: "Times New Roman"
+}
 * {
     margin: 0;
     padding: 0;
@@ -281,13 +283,13 @@ hr {
     font-size: 25px;
     font-weight: bold;
     color: #fff;
-    font-family: "FontAwesome";
+    font-family: --font-default;
 }
 
 .welcome-demop102 p {
     font-size: 15px;
     color: #fff;
-    font-family: "FontAwesome";
+    font-family: --font-default;
     margin-top: 30px;
 }
 
@@ -558,7 +560,6 @@ hr {
     border-radius: 15px;
 }
 
-
 .q-type23 {
     margin-top: 23px;
     background-color: #FF6652;
@@ -576,7 +577,7 @@ hr {
 
 .ques-details10018 p {
     margin-top: 10px;
-    font-family: fontawesome;
+    font-family: --font-default;
 }
 
 .ques-icon-info3293 {
@@ -779,8 +780,10 @@ hr {
 
 .status-part3821 i {
     background-color: #EAEAEB;
-    padding: 15px 123px 15px 10px;
+    padding: 15px 12px 15px 10px;
     font-size: 15px;
+    width:232px;
+    
     color: black;
     font-weight: bold;
     margin-top: 10px;
@@ -1211,7 +1214,7 @@ h5 {
     }
 
 .post-details021 p {
-    font-family: fontawesome;
+    font-family: --font-default;
     color: #848991;
 }
 
@@ -1295,7 +1298,7 @@ h5 {
 
 .info-part-one320 {
     color: #ddd;
-    font-family: fontawesome;
+    font-family: --font-default;
 }
 
     .info-part-one320 h4 {
@@ -1304,19 +1307,19 @@ h5 {
 
 .info-part-two320 h4 {
     color: #ff6652;
-    font-family: fontawesome;
+    font-family: --font-default;
 }
 
 .info-part-two320 a {
     text-decoration: none;
     color: #ddd;
-    font-family: fontawesome;
+    font-family: --font-default;
 }
 
     .info-part-two320 a:hover {
         text-decoration: none;
         color: #ff6652;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
 .info-part-two320 p {
@@ -1339,7 +1342,7 @@ h5 {
 
 .info-part-three320 h4 {
     color: #ff6652;
-    font-family: fontawesome;
+    font-family: --font-default;
 }
 
 .news-info209 {
@@ -1352,27 +1355,27 @@ h5 {
 
     .news-info209 h5 {
         color: #ddd;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
         .news-info209 h5:hover {
             color: #ff6652;
-            font-family: fontawesome;
+            font-family: --font-default;
         }
 
     .news-info209 p {
         color: #c2c8d4;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
     .news-info209 > small {
         color: #ff6652;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
 .info-part-four320 h4 {
     color: #ff6652;
-    font-family: fontawesome;
+    font-family: --font-default;
 }
 
 .tweet-details29 {
@@ -1391,18 +1394,18 @@ h5 {
     .tweet-details29 a {
         text-decoration: none;
         color: #c2c8d4;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
         .tweet-details29 a:hover {
             text-decoration: none;
             color: #ff6652;
-            font-family: fontawesome;
+            font-family: --font-default;
         }
 
     .tweet-details29 > small {
         color: #ff6652;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
 .footer-social {
@@ -1412,7 +1415,7 @@ h5 {
 
     .footer-social p {
         color: black;
-        font-family: fontawesome;
+        font-family: --font-default;
     }
 
 .social-right2389 {

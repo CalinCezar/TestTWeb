@@ -133,11 +133,13 @@
     <Content Include="assets\image\blog-4-806x440.jpg" />
     <Content Include="assets\image\google_icon.png" />
     <Content Include="assets\image\icon.png" />
+    <Content Include="assets\image\icon_profile.png" />
     <Content Include="assets\image\images.png" />
     <Content Include="assets\image\slogan.png" />
     <Content Include="assets\js\auth.js" />
     <Content Include="assets\js\bootstrap.js" />
     <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\edit-profile.js" />
     <Content Include="assets\js\editor.js" />
     <Content Include="assets\js\jquery-3.1.1.min.js" />
     <Content Include="assets\js\login.js" />
@@ -260,6 +262,10 @@
     <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Uploads\3aa631c8-6436-48b5-99ca-040cae737449.jpg" />
+    <Content Include="Uploads\ab5da851-d28f-40d4-a7fc-985f8d866aea.png" />
+    <Content Include="Uploads\cff3593f-e1e0-4a9b-b5e9-0d515ece7d1a.jpg" />
+    <Content Include="Uploads\db42ac73-3c6c-456e-a6bd-126ae1ba691a.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +283,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserData.cs" />
     <Compile Include="Models\UserLogin.cs" />
     <Compile Include="Models\UserRegister.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,5 +1,5 @@
 ﻿body {
-    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    background: -webkit-linear-gradient(left, #ff6652, #ff7d51);
 }
 
 .emp-profile {
@@ -8,6 +8,10 @@
     margin-bottom: 3%;
     border-radius: 0.5rem;
     background: #fff;
+}
+.text-red {
+    color: red;
+    font-size: 15px;
 }
 
 .profile-img {
@@ -51,8 +55,10 @@
     width: 70%;
     padding: 2%;
     font-weight: 600;
-    color: #6c757d;
+    color: black;
     cursor: pointer;
+    margin-bottom: 5px;
+    background:white;
 }
 
 .profile-log-btn {

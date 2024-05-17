@@ -18,12 +18,14 @@ using Forums.Helpers;
 using System.Data.Entity;
 using System.Web;
 using AutoMapper;
+using System.Net;
+using System.Web.UI;
 
 namespace Forums.BusinessLogic.Core
 {
     public class UserApi
     {
-        
+
         internal GeneralResp UserAuthLogic(ULoginData data)
         {
             //SQL connect, select, check data, logic on data
@@ -86,8 +88,11 @@ namespace Forums.BusinessLogic.Core
                 InfoBlog = data.InfoBlog,
                 LastLogin = data.LoginDateTime,
                 LasIP = data.LoginIp,
-                Level = UserRole.User
-     
+                Level = UserRole.User,
+                Profession = String.Empty,
+                PhoneNumber = String.Empty,
+                Photo = String.Empty,
+                Fullname = String.Empty
             };
 
             // CONNECT WITH DB
@@ -104,7 +109,6 @@ namespace Forums.BusinessLogic.Core
                     db.SaveChanges();
                 }
             }
-            // MODIFIED
             return new GeneralResp {Status = true};
         }
         internal HttpCookie Cookie(string loginCredential)
@@ -182,5 +186,101 @@ namespace Forums.BusinessLogic.Core
 
             return userminimal;
         }
+        internal UserMinimal GetUserData(int ID)
+        {
+            using (var db = new UserContext())
+            {
+                var result = db.Users.FirstOrDefault(e => e.Id == ID);
+
+                if (result == null)
+                {
+                    return null;
+                }
+
+                UserMinimal userMinimal = new UserMinimal
+                {
+                    Id = result.Id,
+                    Username = result.Username,
+                    Email = result.Email,
+                    LasIp = result.LasIP,
+                    LastLogin = result.LastLogin,
+                    Photo = result.Photo,
+                    Level = result.Level,
+                    InfoBlog = result.InfoBlog,
+                    Profession = result.Profession,
+                    PhoneNumber = result.PhoneNumber,
+                    Fullname = result.Fullname
+                };
+
+                return userMinimal;
+            }
+        }
+        internal GeneralResp UploadPhoto(string  photo, int ID) 
+        {
+            using (var db = new UserContext())
+            {
+                var result = db.Users.FirstOrDefault(e => e.Id == ID);
+
+                if (result == null)
+                {
+                    return new GeneralResp { Status = false };
+                }
+                if (result.Photo == photo) return new GeneralResp { Status = false };
+                else
+                {
+                    result.Photo = photo;
+                    db.SaveChanges();
+                    return new GeneralResp { Status = true };
+
+                }
+            }
+        }
+        internal GeneralResp EditUserData(UserMinimal data, int ID)
+        {
+            using (var db = new UserContext())
+            {
+                var result = db.Users.FirstOrDefault(e => e.Id == ID);
+
+                if (result == null)
+                {
+                    return new GeneralResp { Status = false };
+                }
+
+                if(result.Fullname ==  data.Fullname &&
+                   result.Email == data.Email &&
+                   result.InfoBlog == data.InfoBlog &&
+                   result.PhoneNumber == data.PhoneNumber &&
+                   result.Profession == data.Profession) 
+                {
+                    return new GeneralResp { Status = false };
+                }
+                else
+                {
+                    result.Fullname = data.Fullname;
+                    result.Email = data.Email;
+                    result.InfoBlog = data.InfoBlog;
+                    result.PhoneNumber = data.PhoneNumber;
+                    result.Profession = data.Profession;
+                    db.SaveChanges();
+                    return new GeneralResp { Status = true };
+                }
+            }
+        }
+        internal GeneralResp DeleteUser(int ID)
+        {
+            using (var db = new UserContext())
+            {
+                var result = db.Users.FirstOrDefault(e => e.Id == ID);
+
+                if (result == null)
+                {
+                    return new GeneralResp { Status = false };
+                }
+                    db.Users.Remove(result);
+                    db.SaveChanges(); 
+                    return new GeneralResp { Status = true };
+            }
+        }
+
     }
 }

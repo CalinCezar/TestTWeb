@@ -4,8 +4,6 @@ using System.Web.Mvc;
 using Forums.BusinessLogic;
 using Forums.BusinessLogic.Interfaces;
 using Forums.Web.Extension;
-using Forums.BusinessLogic.Interfaces;
-using Forums.BusinessLogic;
 
 namespace Forums.Web.Controllers
 {
@@ -16,7 +14,7 @@ namespace Forums.Web.Controllers
         public BaseController()
         {
             var bl = new BussinesLogic();
-            _session = bl.GetAuthBL();
+            _session = bl.GetSessionBL();
         }
 
         public void SessionStatus()
@@ -42,7 +40,7 @@ namespace Forums.Web.Controllers
                             ControllerContext.HttpContext.Response.Cookies.Add(cookie);
                         }
                     }
-
+                    
                     System.Web.HttpContext.Current.Session["LoginStatus"] = "logout";
                 }
             }

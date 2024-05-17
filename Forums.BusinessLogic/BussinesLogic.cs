@@ -8,13 +8,13 @@ namespace Forums.BusinessLogic
 {
     public class BussinesLogic
     {
-        public ISession GetAuthBL()
+        public ISession GetSessionBL()
         {
             return new SessionBL();
         }
-        public ISession GetRegisterBL()
+        public IUser GetUserBL() 
         {
-            return new SessionBL();
+            return new UserBL();
         }
     }
 }

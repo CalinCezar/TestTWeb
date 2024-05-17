@@ -10,17 +10,18 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using System.Web.UI.WebControls;
+using System.Security.Policy;
 
 namespace Forums.Web.Controllers
 {
-    public class RegisterController : Controller
+    public class RegisterController : BaseController
     {
 
         private readonly ISession _session;
         public RegisterController()
         {
             var bl = new BussinesLogic();
-            _session = bl.GetRegisterBL();
+            _session = bl.GetSessionBL();
         }
 
         // GET: Register
@@ -38,7 +39,7 @@ namespace Forums.Web.Controllers
                     InfoBlog = uRegis.InfoBlog,
                     LoginIp = Request.UserHostAddress,
                     LoginDateTime = DateTime.Now
-            };
+                };
 
                 GeneralResp resp = _session.RegisterNewUserAction(user);
 

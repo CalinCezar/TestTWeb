@@ -15,7 +15,7 @@ namespace Forums.Web.Filters
         public AdminActionFilter() 
         {
             var businessLogic = new BusinessLogic.BussinesLogic();
-            _session = businessLogic.GetAuthBL();
+            _session = businessLogic.GetSessionBL();
         }
 
         public override void OnActionExecuting(ActionExecutingContext filterContext)

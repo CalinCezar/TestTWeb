@@ -11,8 +11,8 @@ namespace Forums.Web.Controllers
     public class HomeController : BaseController
     {
         [AdminActionFilter]
-    [AuthorisedActionFilter]
-    public ActionResult HomePage()
+        [AuthorisedActionFilter]
+        public ActionResult HomePage()
         {
             SessionStatus();
             return View();

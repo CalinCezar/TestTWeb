@@ -10,7 +10,7 @@ namespace Forums.Web.Filters
         public AuthorisedActionFilter()
         {
             var businessLogic = new BusinessLogic.BussinesLogic();
-            _session = businessLogic.GetAuthBL();
+            _session = businessLogic.GetSessionBL();
         }
         public override void OnResultExecuting(ResultExecutingContext filterContext)
         {

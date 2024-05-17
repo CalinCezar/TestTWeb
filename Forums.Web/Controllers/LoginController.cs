@@ -12,22 +12,24 @@ using System.Web.UI.WebControls;
 using System.Web.Optimization;
 using Microsoft.Ajax.Utilities;
 using Forums.Web.Extension;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Data.Entity.Migrations.Model;
+using System.Data.Entity.Core.Objects;
 
 namespace Forums.Web.Controllers
 {
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         private readonly ISession _session;
         public LoginController()
         {
             var bl = new BussinesLogic();
-            _session = bl.GetAuthBL();
+            _session = bl.GetSessionBL();
         }
         public ActionResult Index()
         {
             return View();
         }
-
         // GET: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -42,9 +44,9 @@ namespace Forums.Web.Controllers
                     LoginIP = Request.UserHostAddress,
                     LoginDateTime = DateTime.Now
                 };
-
+                
                 GeneralResp resp = _session.UserPassCheckAction(user);
-
+                
                 if (resp.Status)
                 {
                     HttpCookie cookie = _session.GenCookie(uLogin.Credential);
@@ -61,3 +63,7 @@ namespace Forums.Web.Controllers
         }
     }
 }
+
+
+
+ 

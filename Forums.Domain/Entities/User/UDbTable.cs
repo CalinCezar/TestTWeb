@@ -16,6 +16,7 @@ namespace Forums.Domain.Entities.User
         [StringLength(30, MinimumLength = 5)]
         public string Username { get; set; }
 
+        
         [Required]
         [Display(Name = "Password")]
         [StringLength(50, MinimumLength = 8)]
@@ -30,6 +31,15 @@ namespace Forums.Domain.Entities.User
         [StringLength(150)]
         public string InfoBlog { get; set; }
 
+        [Display(Name = "Profession")]
+        [StringLength(50)]
+        public string Profession { get; set; }
+
+        [Display(Name = "PhoneNumber")]
+        [StringLength(20)]
+        public string PhoneNumber {  get; set; }
+        public string Photo { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime LastLogin { get; set; }
 
@@ -37,5 +47,11 @@ namespace Forums.Domain.Entities.User
         public string LasIP { get; set; }
 
         public UserRole Level { get; set; }
+
+        [Display(Name = "Fullname")]
+        [StringLength(30)]
+        public string Fullname { get; set; }
+
+
     }
 }
