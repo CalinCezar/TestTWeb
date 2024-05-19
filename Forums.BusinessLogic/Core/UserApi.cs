@@ -281,6 +281,39 @@ namespace Forums.BusinessLogic.Core
                     return new GeneralResp { Status = true };
             }
         }
+        internal GeneralResp SendEmail(string email, string name, string subject, string body)
+        {
+            return new GeneralResp { Status = EmailService.SendEmailToUser(email, name, subject, body)}; 
+        }
+        internal GeneralResp ResetPassword(string email, string password)
+        {
+            using (var db = new UserContext())
+            {
+                var result = db.Users.FirstOrDefault(e => e.Email == email);
 
+                if (result == null)
+                {
+                    return new GeneralResp { Status = false };
+                }
+                result.Password = LoginHelper.HashGen(password);
+                db.SaveChanges();
+                return new GeneralResp { Status = true };
+                
+            }
+        }
+        internal GeneralResp ExistingEmail(string email)
+        {
+            using (var db = new UserContext())
+            {
+                var result = db.Users.FirstOrDefault(e => e.Email == email);
+
+                if (result == null)
+                {
+                    return new GeneralResp { Status = false };
+                }
+                else return new GeneralResp { Status = true };
+
+            }
+        }
     }
 }

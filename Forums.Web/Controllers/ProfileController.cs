@@ -16,12 +16,11 @@ namespace Forums.Web.Controllers
 {
     public class ProfileController : BaseController
     {
-        private readonly ISession _session;
+       
         private readonly IUser _user;
         public ProfileController()
         {
             var bl = new BussinesLogic();
-            _session = bl.GetSessionBL();
             _user = bl.GetUserBL();
         }
         //Logging out of session

@@ -1,4 +1,4 @@
-html {
+﻿html {
     background: #ff6652;
     /*
   background: radial-gradient(#fff176, #f57f17);
@@ -45,7 +45,17 @@ input[type="password"] {
 input[type="radio"] {
     margin-right: 10px;
 }
-
+input[type="tel"] {
+    padding: 10px 20px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    width: 200px;
+    margin-left: 10px;
+    outline: none;
+}
+input[type="tel"]:focus {
+    border-color: #ff6652;
+}
 label {
     margin-bottom: 20px;
     display: block;
@@ -263,3 +273,20 @@ label {
     font-weight: 500;
     letter-spacing: 1px;
 }
+
+.btn-sent-code {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none; /* Elimină sublinierea */
+    color: white; /* Culoarea textului */
+    background-color: #007bff; /* Culoarea fundalului */
+    border: none; /* Fără margine */
+    border-radius: 5px; /* Colțuri rotunjite */
+    cursor: pointer; /* Cursor de buton */
+}
+
+    .btn-sent-code:hover {
+        background-color: #0056b3; /* Culoarea fundalului la hover */
+    }

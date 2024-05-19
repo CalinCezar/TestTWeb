@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CookieGenerator.cs" />
+    <Compile Include="EmailService.cs" />
     <Compile Include="LoginHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

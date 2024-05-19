@@ -25,12 +25,21 @@ namespace Forums.BusinessLogic
         {
             return Cookie(loginCredential);
         }
-
         public UserMinimal GetUserByCookie(string apiCookieValue)
         {
             return UserCookie(apiCookieValue);
         }
-       
-
+        public GeneralResp SendEmailToUserAction(string email, string name, string subject, string body)
+        {
+            return SendEmail(email, name, subject, body);
+        }
+        public GeneralResp ResetPasswordAction(string email, string password)
+        {
+            return ResetPassword(email, password);
+        }
+        public GeneralResp ExistingEmailInDB(string email)
+        {
+            return ExistingEmail(email);
+        }
     }
 }

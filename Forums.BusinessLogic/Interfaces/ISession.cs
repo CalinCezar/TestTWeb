@@ -15,8 +15,9 @@ namespace Forums.BusinessLogic.Interfaces
         GeneralResp RegisterNewUserAction(URegisterData data);
         HttpCookie GenCookie(string loginCredential);
         UserMinimal GetUserByCookie(string apiCookieValue);
-        
-        
+        GeneralResp SendEmailToUserAction(string email, string name, string subject, string body);
+        GeneralResp ResetPasswordAction(string email, string password);
+        GeneralResp ExistingEmailInDB(string email);
     }
 }
 

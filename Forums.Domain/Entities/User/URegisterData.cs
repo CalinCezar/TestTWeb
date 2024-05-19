@@ -15,6 +15,5 @@ namespace Forums.Domain.Entities.User
         public string LoginIp { get; set; }
         public DateTime LoginDateTime { get; set; }
 
-
     }
 }

@@ -19,6 +19,6 @@ namespace Forums.Web.Models
         public string Email { get; set; }
         [Display(Name = "InfoBlog")]
         public string InfoBlog { get; set; }
-
+        public int VerificationCode { get; set; }
     }
 }

@@ -143,6 +143,7 @@
     <Content Include="assets\js\editor.js" />
     <Content Include="assets\js\jquery-3.1.1.min.js" />
     <Content Include="assets\js\login.js" />
+    <Content Include="assets\js\reset-password.js" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-grid.rtl.css" />
@@ -277,6 +278,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ResetPasswordController.cs" />
     <Compile Include="Extension\HttpContextExtensions.cs" />
     <Compile Include="Filters\AdminActionFilter.cs" />
     <Compile Include="Filters\AuthorisedActionFilter.cs" />
@@ -311,6 +313,9 @@
     <Content Include="Views\Home\HomeLayout\_HomeLayout.cshtml" />
     <Content Include="Views\Profile\Index.cshtml" />
     <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\ResetPassword\Index.cshtml" />
+    <Content Include="Views\ResetPassword\_LayoutResetPassword.cshtml" />
+    <Content Include="Views\ResetPassword\Reset.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

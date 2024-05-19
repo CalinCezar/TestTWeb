@@ -22,6 +22,8 @@
                     <div id="error-email" class="text-red"></div>
                     <div class="accept-data-arrow"><span id="email-accept-data"></span></div>
                     <input type="email" placeholder="Email" name="Email" id="Email" value="@Request.Form["Email"]" onkeyup="validateEmail()" required />
+                    <button type="button" class="button" style="margin-bottom:19px;" id="sendCodeButton">Send code</button>
+                    <input type="tel" placeholder="Verification code" name="VerificationCode" id="VerificationCode" value="" required />
                 </div>
                 <div class="input-data">
                     <div id="error-password" class="text-red"></div>
@@ -31,37 +33,79 @@
                 <div class="input-data">
                     <div id="error-con-password" class="text-red"></div>
                     <div class="accept-data-arrow"><span id="con-password-accept-data"></span></div>
-                    <input type="password" placeholder="Confirm Password" name="Con-Password" id="Con-Password" onkeyup="validateConPassword()" required />
+                    <input type="password" placeholder="Confirm password" name="Con-Password" id="Con-Password" onkeyup="validateConPassword()" required />
                 </div>
                 <div class="input-data">
                     <div id="error-info-blog" class="text-red"></div>
                     <div class="accept-data-arrow"><span id="info-accept-data"></span></div>
-                    <div class="text-area"><textarea rows="3" placeholder="Info Blog" name="InfoBlog" id="Info" onkeyup="validateInfo()" >@Request.Form["InfoBlog"]</textarea></div>
+                    <div class="text-area"><textarea rows="3" placeholder="Info Blog" name="InfoBlog" id="Info" onkeyup="validateInfo()">@Request.Form["InfoBlog"]</textarea></div>
                 </div>
                 <div class="col-md-4">
                     <div class="row text-center sign-with">
                         <div class="col-md-12 sign-in28912">
                             <div class="btn-group btn-group-justified">
-
                                 <input type="submit" value="Register" class="button" style="width:200px;">
-
                             </div>
                         </div>
-                        
+
                         <br>
                         Have already an account? <a href="/login/index" class="btn-link">Login</a>
-
                         <hr>
                         <div class="col-md-12 sign-in28912">
                             <img src="~/assets/image/google_icon.png" alt="Google" class="google-icon">
                             <a href="/" class="btn btn-danger btn-sign-google">Sign in with Google</a>
-
                         </div>
-
                     </div>
                 </div>
-
             }
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+    $(document).ready(function() {
+        $('#sendCodeButton').click(function () {
+            
+            var email = $('#Email').val();
+            if (email) {
+                disableButtonTemporarily();
+                $.ajax({
+                    url: '@Url.Action("SendCode", "Register")',
+                    type: 'POST',
+                    data: {
+                        email: email,
+                        __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                    },
+                    success: function (response) {
+                        
+                        if (response.success) {
+                            alert('Code sent successfully!')
+                            
+                        } else {
+                            alert('Error sending code.');
+                        }
+                    },
+                    error: function() {
+                        alert('Error sending code.');
+                    }
+                });
+            } else {
+                alert('Please enter a valid email address.');
+            }
+        });
+        function disableButtonTemporarily() {
+            var button = $('#sendCodeButton');
+            
+            button.prop('disabled', true);
+            button.prop("value", "Wait...");
+
+            setTimeout(function () {
+                button.prop("value", "Try again?");
+                button.prop('disabled', false);
+            }, 15000); 
+        }
+    });
+            </script>
+
+
         </div>
 
 

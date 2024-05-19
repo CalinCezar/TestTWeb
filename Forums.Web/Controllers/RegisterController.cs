@@ -31,6 +31,11 @@ namespace Forums.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+                if ((Session["VerificationCode"] as int?) != uRegis.VerificationCode)
+                {
+                    ModelState.AddModelError("", "Invalid verification code!");
+                    return View(uRegis);
+                }
                 URegisterData user = new URegisterData
                 {
                     Credential = uRegis.Credential,
@@ -59,6 +64,20 @@ namespace Forums.Web.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SendCode(string email)
+        {
+            Random random = new Random();
+            int verificationCode = random.Next(123456, 1000000);
+ 
+            GeneralResp resp = _session.SendEmailToUserAction(email, "Name", "Verification code for account registration", "Code: " + verificationCode);
+            if(resp.Status) 
+            {
+                Session["VerificationCode"] = verificationCode;
+            }
+            return Json(new { success = resp.Status });
         }
     }
 }
