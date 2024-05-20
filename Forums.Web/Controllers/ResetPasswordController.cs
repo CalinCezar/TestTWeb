@@ -70,6 +70,10 @@ namespace Forums.Web.Controllers
 
         public ActionResult ResettingProcess(UserRegister data)
         {
+            if(data.Password == null ||  string.IsNullOrEmpty(Session["Email"].ToString())) 
+            {
+                return RedirectToAction("Index", "ResetPassword");
+            }
             data.Email = Session["Email"].ToString();
             GeneralResp resp = _session.ResetPasswordAction(Session["Email"].ToString(), data.Password);
             Session.Remove("ResetToken");
