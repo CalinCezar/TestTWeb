@@ -12,6 +12,7 @@ using Forums.Domain.Entities.User;
 using Forums.Web.Extension;
 using Forums.Domain.Entities.Response;
 using System.IO;
+using System.Net;
 namespace Forums.Web.Controllers
 {
     public class ProfileController : BaseController
@@ -32,6 +33,7 @@ namespace Forums.Web.Controllers
 
             return RedirectToAction("HomePage", "Home");
         }
+        [HttpPost]
         public ActionResult DeleteUser()
         {
             var user = System.Web.HttpContext.Current.GetMySessionObject();
@@ -53,6 +55,7 @@ namespace Forums.Web.Controllers
             }
             return RedirectToAction("Index", "Login");
         }
+        [HttpPost]
         public ActionResult EditProfile(UserData data)
         {
             var user = System.Web.HttpContext.Current.GetMySessionObject();
@@ -103,19 +106,24 @@ namespace Forums.Web.Controllers
 
             return View(currentUser);
         }
-
+        [HttpPost]
         public ActionResult UploadPhoto()
         {
             var user = System.Web.HttpContext.Current.GetMySessionObject();
-
-            string filePath = String.Empty;
+            var userData = _user.GetUserDataAction(user.Id);
             string fileName = String.Empty;
+            string filePath = String.Empty;
             if (Request.Files.Count > 0)
             {
                 var file = Request.Files[0];
                 if (file != null && file.ContentLength > 0)
                 {
-                    var userData = _user.GetUserDataAction(user.Id);
+                    var allowedExtensions = new[] { ".jpeg", ".jpg", ".png" };
+                    var fileExtension = Path.GetExtension(file.FileName).ToLower();
+                    if (!allowedExtensions.Contains(fileExtension))
+                    {
+                        return Json(new { status = false });
+                    }
                     var oldFilePath = Server.MapPath(userData.Photo);
 
                     if (System.IO.File.Exists(oldFilePath))
@@ -131,15 +139,13 @@ namespace Forums.Web.Controllers
             }
             if (string.IsNullOrEmpty(fileName))
             {
-                var userData = _user.GetUserDataAction(user.Id);
                 fileName = Path.GetFileName(userData.Photo);
             }
-            var uData = _user.GetUserDataAction(user.Id);
-            uData.Photo = "~/Uploads/" + fileName;
-            GeneralResp resp = _user.UploadPhotoAction(uData.Photo, user.Id);
+
+            userData.Photo = "~/Uploads/" + fileName;
 
             var photoUrl = Url.Content("~/Uploads/" + fileName);
-            return Json(new { status = resp.Status, photoUrl = photoUrl });
+            return Json(new { status = _user.UploadPhotoAction(userData.Photo, user.Id).Status, photoUrl = photoUrl });
         }
 
 

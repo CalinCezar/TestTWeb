@@ -65,16 +65,15 @@ namespace Forums.Web.Controllers
                 Session["Email"] = email;
                 return View();
             }
-            return RedirectToAction("Index", "Login");
+            return RedirectToAction("Index", "ResetPassword");
         }
-
+        [HttpPost]
         public ActionResult ResettingProcess(UserRegister data)
         {
-            if(data.Password == null ||  string.IsNullOrEmpty(Session["Email"].ToString())) 
+            if(string.IsNullOrEmpty(data.Password) ||  string.IsNullOrEmpty(Session["Email"].ToString())) 
             {
                 return RedirectToAction("Index", "ResetPassword");
             }
-            data.Email = Session["Email"].ToString();
             GeneralResp resp = _session.ResetPasswordAction(Session["Email"].ToString(), data.Password);
             Session.Remove("ResetToken");
             Session.Remove("ResetTokenExpiration");

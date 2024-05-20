@@ -263,10 +263,6 @@
     <Content Include="Scripts\jquery-ui-1.13.2.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
-    <Content Include="Uploads\3aa631c8-6436-48b5-99ca-040cae737449.jpg" />
-    <Content Include="Uploads\ab5da851-d28f-40d4-a7fc-985f8d866aea.png" />
-    <Content Include="Uploads\cff3593f-e1e0-4a9b-b5e9-0d515ece7d1a.jpg" />
-    <Content Include="Uploads\db42ac73-3c6c-456e-a6bd-126ae1ba691a.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +321,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
